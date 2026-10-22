@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ca" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REFORMA VALENCIA - Reformes i Disseny d'Interiors</title>
+    <title>REFORMAS FONTETA - Reformas y Diseño de Interiores</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,6 +41,9 @@
     
     <!-- Swiper CSS (Para el carrusel táctil) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- AOS CSS (Para efectos de scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         body {
@@ -68,6 +71,14 @@
         .map-dark-mode {
             filter: grayscale(100%) invert(92%) contrast(85%);
         }
+        /* Efecto de movimiento Ken Burns para la imagen principal */
+        @keyframes kenBurns {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.15) translate(-2%, -2%); }
+        }
+        .hero-img-ken-burns {
+            animation: kenBurns 25s ease-in-out infinite alternate;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-mint selection:text-slate-800">
@@ -84,16 +95,16 @@
                         <div class="w-4 h-9 bg-brand-orangeSoft rounded-t-sm transform group-hover:-translate-y-1 transition-transform"></div>
                         <div class="w-4 h-5 bg-amber-200 rounded-t-sm transform group-hover:-translate-y-0.5 transition-transform"></div>
                     </div>
-                    <span class="font-bold text-xl tracking-wider text-slate-800 uppercase">REFORMA<br><span class="font-light text-sm tracking-widest text-slate-500 block -mt-1">VALENCIA</span></span>
+                    <span class="font-bold text-xl tracking-wider text-slate-800 uppercase">REFORMAS<br><span class="font-light text-sm tracking-widest text-slate-500 block -mt-1">FONTETA</span></span>
                 </a>
 
                 <!-- DESKTOP MENU -->
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
-                    <a href="#inici" class="hover:text-brand-mintDark transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-mintDark">Inici</a>
-                    <a href="#serveis" class="hover:text-brand-mintDark transition-colors">Serveis</a>
-                    <a href="#projectes" class="hover:text-brand-mintDark transition-colors">Projectes</a>
-                    <a href="#galeria" class="hover:text-brand-mintDark transition-colors">Galeria</a>
-                    <a href="#contacte" class="hover:text-brand-mintDark transition-colors">Contacte</a>
+                    <a href="#inici" class="hover:text-brand-mintDark transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-mintDark">Inicio</a>
+                    <a href="#serveis" class="hover:text-brand-mintDark transition-colors">Servicios</a>
+                    <a href="#projectes" class="hover:text-brand-mintDark transition-colors">Proyectos</a>
+                    <a href="#galeria" class="hover:text-brand-mintDark transition-colors">Galería</a>
+                    <a href="#contacte" class="hover:text-brand-mintDark transition-colors">Contacto</a>
                 </nav>
 
                 <!-- CTA BUTTON -->
@@ -105,7 +116,7 @@
 
                 <!-- MOBILE MENU BUTTON -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" type="button" class="text-slate-700 hover:text-slate-900 focus:outline-none p-2" aria-label="Obrir menú">
+                    <button id="mobile-menu-button" type="button" class="text-slate-700 hover:text-slate-900 focus:outline-none p-2" aria-label="Abrir menú">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -114,11 +125,11 @@
 
         <!-- MOBILE MENU DROPDOWN -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3">
-            <a href="#inici" class="block py-2 text-slate-800 font-medium">Inici</a>
-            <a href="#serveis" class="block py-2 text-slate-600 hover:text-slate-900">Serveis</a>
-            <a href="#projectes" class="block py-2 text-slate-600 hover:text-slate-900">Projectes</a>
-            <a href="#galeria" class="block py-2 text-slate-600 hover:text-slate-900">Galeria</a>
-            <a href="#contacte" class="block py-2 text-slate-600 hover:text-slate-900">Contacte</a>
+            <a href="#inici" class="block py-2 text-slate-800 font-medium">Inicio</a>
+            <a href="#serveis" class="block py-2 text-slate-600 hover:text-slate-900">Servicios</a>
+            <a href="#projectes" class="block py-2 text-slate-600 hover:text-slate-900">Proyectos</a>
+            <a href="#galeria" class="block py-2 text-slate-600 hover:text-slate-900">Galería</a>
+            <a href="#contacte" class="block py-2 text-slate-600 hover:text-slate-900">Contacto</a>
             <a href="#pressupost" class="block text-center bg-brand-mint text-slate-800 font-semibold py-3 rounded-full mt-4">
                 PEDIR PRESUPUESTO
             </a>
@@ -129,13 +140,13 @@
     <section id="inici" class="hero-bg py-12 md:py-20 lg:py-24 overflow-hidden border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-6 space-y-6 text-left">
+                <div class="lg:col-span-6 space-y-6 text-left" data-aos="fade-right" data-aos-duration="1000">
                     <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-none uppercase">
-                        REFORMA<br>
-                        <span class="text-slate-900">VALENCIA</span>
+                        REFORMAS<br>
+                        <span class="text-slate-900">FONTETA</span>
                     </h1>
                     <p class="text-slate-600 text-lg sm:text-xl font-normal leading-relaxed max-w-lg">
-                        TRANSFORMAMOS TU HOGAR CON ESTILO MINIMALISTA Y LIMPIO EN EL CORAZÓN DE VALENCIA.
+                        Transformamos tu hogar con un estilo minimalista y limpio, elevando la calidad y confort de tu espacio.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 sm:items-center">
                         <a href="#pressupost" class="inline-flex justify-center items-center px-8 py-4 bg-brand-mint hover:bg-brand-mintDark text-slate-800 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 uppercase text-xs tracking-wider">
@@ -146,11 +157,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="lg:col-span-6 relative">
+                <div class="lg:col-span-6 relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Interior minimalista de Reforma Valencia" 
-                             class="w-full h-[400px] sm:h-[500px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                             alt="Interior minimalista de Reformas Fonteta" 
+                             class="w-full h-[400px] sm:h-[500px] object-cover object-center hero-img-ken-burns">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-brand-beige/50 rounded-full blur-3xl -z-10"></div>
@@ -162,26 +173,26 @@
     <!-- SERVICES SECTION -->
     <section id="serveis" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">ELS NOSTRES SERVEIS</span>
-                <h2 class="text-3xl font-bold text-slate-900 mt-2">Disseny, Qualitat i Elegància</h2>
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">NUESTROS SERVICIOS</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2">Diseño, Calidad y Elegancia</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center group">
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center group" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-20 h-20 bg-brand-mintLight text-brand-mintDark rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-house-chimney text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3 uppercase tracking-wide">REFORMAS INTEGRALES</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">Reformas integrales con estilo minimalista, optimizando cada espacio con luz natural y acabados de primera calidad.</p>
                 </div>
-                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center group">
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center group" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-20 h-20 bg-amber-50 text-brand-orangeSoft rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-couch text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3 uppercase tracking-wide">DISEÑO DE INTERIORES</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">Transformamos tu hogar con diseño funcional, muebles a medida y paletas cromáticas armónicas y relajantes.</p>
                 </div>
-                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center group">
+                <div class="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center group" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-20 h-20 bg-sky-50 text-sky-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-bath text-3xl"></i>
                     </div>
@@ -195,37 +206,37 @@
     <!-- PROJECTS / PORTFOLIO PREVIEW -->
     <section id="projectes" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12" data-aos="fade-up">
                 <div>
-                    <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">PORTFOLI</span>
-                    <h2 class="text-3xl font-bold text-slate-900 mt-1">Projectes Recents a València</h2>
+                    <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">PORTAFOLIO</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-1">Proyectos Recientes</h2>
                 </div>
-                <a href="#contacte" class="text-sm font-semibold text-slate-800 hover:text-brand-mintDark transition-colors mt-4 md:mt-0 flex items-center gap-2">
-                    Veure tot el portfoli <i class="fa-solid fa-arrow-right"></i>
+                <a href="#contacte" class="text-sm font-semibold text-slate-800 hover:text-brand-mintDark transition-colors mt-4 md:mt-0 flex items-center gap-2 group">
+                    Ver todo el portafolio <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
                 </a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Reforma de Cocina Ruzafa" class="w-full h-64 object-cover">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Reforma de Cocina" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <span class="text-xs font-semibold text-brand-mintDark uppercase">Cocinas</span>
-                        <h3 class="text-lg font-bold text-slate-800 mt-1">Ático en Ruzafa</h3>
+                        <h3 class="text-lg font-bold text-slate-800 mt-1">Ático Moderno</h3>
                         <p class="text-slate-500 text-sm mt-2">Reforma integral de cocina abierta con isla central y tonos neutros.</p>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Reforma Salón Minimalista" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <span class="text-xs font-semibold text-brand-orangeSoft uppercase">Interiorismo</span>
-                        <h3 class="text-lg font-bold text-slate-800 mt-1">Salón Cánovas</h3>
+                        <h3 class="text-lg font-bold text-slate-800 mt-1">Salón Principal</h3>
                         <p class="text-slate-500 text-sm mt-2">Diseño minimalista escandinavo con suelos de madera clara y luz directa.</p>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Baño Suite" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <span class="text-xs font-semibold text-sky-500 uppercase">Baños</span>
-                        <h3 class="text-lg font-bold text-slate-800 mt-1">Suite Quatre Carreres</h3>
+                        <h3 class="text-lg font-bold text-slate-800 mt-1">Suite Principal</h3>
                         <p class="text-slate-500 text-sm mt-2">Baño principal estilo spa con acabados en microcemento y grifería negra.</p>
                     </div>
                 </div>
@@ -233,20 +244,18 @@
         </div>
     </section>
 
-    <!-- GALERÍA CARRUSEL (NUEVA SECCIÓN) -->
+    <!-- GALERÍA CARRUSEL -->
     <section id="galeria" class="py-20 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">LA NOSTRA FEINA</span>
-                <h2 class="text-3xl font-bold text-slate-900 mt-2">Galeria de Reformes</h2>
-                <p class="text-slate-600 text-sm mt-3">Desplaça o toca les imatges per explorar els nostres últims projectes.</p>
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">NUESTRO TRABAJO</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2">Galería de Reformas</h2>
+                <p class="text-slate-600 text-sm mt-3">Desplaza o toca las imágenes para explorar nuestros últimos proyectos.</p>
             </div>
             
             <!-- Swiper Carrusel -->
-            <div class="swiper gallery-swiper pb-12">
+            <div class="swiper gallery-swiper pb-12" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
-                    <!-- Generamos los 13 slides con las imágenes solicitadas -->
-                    <!-- Se incluye un onerror con una imagen de Unsplash por si las imágenes locales aún no están en la carpeta -->
                     <div class="swiper-slide">
                         <div class="relative group overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing">
                             <img src="REFORMA1.jpeg" alt="Reforma 1" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80'">
@@ -289,7 +298,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="relative group overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing">
-                            <img src="REFORMA9.jpeg" alt="Reforma 9" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=800&q=80'">
+                            <img src="REFORMA9.jpeg" alt="Reforma 9" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1600566753163-67eb9e2e2099?auto=format&fit=crop&w=800&q=80'">
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -322,11 +331,11 @@
     <!-- FORMULARIO DE COTIZACIÓN -->
     <section id="pressupost" class="py-20 bg-brand-mintLight/40 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-teal-50">
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-teal-50" data-aos="fade-up">
                 <div class="text-center max-w-xl mx-auto mb-10">
-                    <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">SOL·LICITA INFORMACIÓ</span>
-                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Demana el teu Pressupost Sense Compromís</h2>
-                    <p class="text-slate-600 text-sm mt-2">Explica'ns la teva idea i ens posarem en contacte amb tu ràpidament.</p>
+                    <span class="text-xs font-bold tracking-widest text-brand-mintDark uppercase">SOLICITA INFORMACIÓN</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Solicita tu Presupuesto Sin Compromiso</h2>
+                    <p class="text-slate-600 text-sm mt-2">Cuéntanos tu idea y nos pondremos en contacto contigo rápidamente.</p>
                 </div>
 
                 <div id="form-alert" class="hidden mb-6 p-4 rounded-xl text-sm font-medium"></div>
@@ -335,29 +344,29 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
-                                Nom Complet <span class="text-rose-500">*</span>
+                                Nombre Completo <span class="text-rose-500">*</span>
                             </label>
-                            <input type="text" id="name" required placeholder="El teu nom" 
+                            <input type="text" id="name" required placeholder="Tu nombre" 
                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-mintDark focus:border-transparent transition-all text-slate-800 text-sm">
                         </div>
                         <div>
                             <label for="email" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
-                                Correu Electrònic <span class="text-rose-500">*</span>
+                                Correo Electrónico <span class="text-rose-500">*</span>
                             </label>
-                            <input type="email" id="email" required placeholder="exemple@correu.com" 
+                            <input type="email" id="email" required placeholder="ejemplo@correo.com" 
                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-mintDark focus:border-transparent transition-all text-slate-800 text-sm">
                         </div>
                     </div>
                     <div>
                         <label for="idea" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
-                            Explica'ns la teva idea <span class="text-rose-500">*</span>
+                            Cuéntanos tu idea <span class="text-rose-500">*</span>
                         </label>
-                        <textarea id="idea" rows="5" required placeholder="Quin tipus de reforma necessites? Dues habitacions, reforma integral, cuina..." 
+                        <textarea id="idea" rows="5" required placeholder="¿Qué tipo de reforma necesitas? Dos habitaciones, reforma integral, cocina..." 
                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-mintDark focus:border-transparent transition-all text-slate-800 text-sm"></textarea>
                     </div>
                     <div class="text-center pt-2">
                         <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-full shadow-lg transition-all duration-300 text-sm tracking-wider uppercase">
-                            Enviar Sol·licitud
+                            Enviar Solicitud
                         </button>
                     </div>
                 </form>
@@ -365,13 +374,13 @@
         </div>
     </section>
 
-    <!-- CONTACTO, REDES SOCIALES Y MAPA INTERACTIVO (FOOTER MEJORADO) -->
+    <!-- CONTACTO, REDES SOCIALES Y MAPA INTERACTIVO (FOOTER) -->
     <footer id="contacte" class="bg-slate-900 text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-12 border-b border-slate-800">
                 
                 <!-- Columna Izquierda: Info, Contacto y Redes -->
-                <div class="space-y-8">
+                <div class="space-y-8" data-aos="fade-right">
                     <div class="space-y-4">
                         <div class="flex items-center space-x-2">
                             <div class="flex items-end space-x-1">
@@ -379,19 +388,19 @@
                                 <div class="w-3 h-7 bg-brand-orangeSoft rounded-t-sm"></div>
                                 <div class="w-3 h-4 bg-amber-200 rounded-t-sm"></div>
                             </div>
-                            <span class="font-bold text-2xl tracking-wider text-white">REFORMA VALENCIA</span>
+                            <span class="font-bold text-2xl tracking-wider text-white">REFORMAS FONTETA</span>
                         </div>
                         <p class="text-slate-400 text-sm leading-relaxed max-w-md">
-                            Transformem el teu espai en la llar dels teus somnis amb estil minimalista, qualitat i atenció al detall a València i rodalia.
+                            Transformamos tu espacio en el hogar de tus sueños con estilo minimalista, calidad y atención al detalle.
                         </p>
                     </div>
 
                     <div class="space-y-4">
-                        <h4 class="text-sm font-semibold uppercase tracking-wider text-brand-mint">Contacte</h4>
+                        <h4 class="text-sm font-semibold uppercase tracking-wider text-brand-mint">Contacto</h4>
                         <ul class="space-y-3 text-slate-300 text-sm">
                             <li class="flex items-start space-x-3">
                                 <i class="fa-solid fa-location-dot mt-1 text-brand-mint"></i>
-                                <span>C/ de la Fonteta de Sant Lluís, 13, Quatre Carreres, 46006 València, Espanya</span>
+                                <span>C/ de la Fonteta de Sant Lluís, 13, 46006 Valencia, España</span>
                             </li>
                             <li class="flex items-center space-x-3">
                                 <i class="fa-solid fa-phone text-brand-mint"></i>
@@ -399,13 +408,13 @@
                             </li>
                             <li class="flex items-center space-x-3">
                                 <i class="fa-solid fa-envelope text-brand-mint"></i>
-                                <a href="mailto:info@reformavalencia.com" class="hover:text-brand-mint transition-colors">info@reformavalencia.com</a>
+                                <a href="mailto:info@reformasfonteta.com" class="hover:text-brand-mint transition-colors">info@reformasfonteta.com</a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="space-y-4">
-                        <h4 class="text-sm font-semibold uppercase tracking-wider text-brand-mint">Segueix-nos</h4>
+                        <h4 class="text-sm font-semibold uppercase tracking-wider text-brand-mint">Síguenos</h4>
                         <div class="flex space-x-4">
                             <a href="#" class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-slate-300 hover:bg-brand-mint hover:text-slate-900 transition-all duration-300 transform hover:-translate-y-1" aria-label="Instagram">
                                 <i class="fa-brands fa-instagram text-xl"></i>
@@ -421,7 +430,7 @@
                 </div>
 
                 <!-- Columna Derecha: Mapa Interactivo -->
-                <div class="w-full h-full min-h-[350px] rounded-2xl overflow-hidden shadow-2xl border border-slate-800 relative group">
+                <div class="w-full h-full min-h-[350px] rounded-2xl overflow-hidden shadow-2xl border border-slate-800 relative group" data-aos="fade-left">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.684858887253!2d-0.3754769234648488!3d39.45571897155888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f5b5b5b5b5b%3A0x1234567890abcdef!2sCarrer%20de%20la%20Fonteta%20de%20Sant%20Llu%C3%ADs%2C%2013%2C%2046006%20Val%C3%A8ncia!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
                         width="100%" 
@@ -431,7 +440,7 @@
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade"
-                        title="Mapa de ubicación de Reforma Valencia">
+                        title="Mapa de ubicación de Reformas Fonteta">
                     </iframe>
                     <!-- Overlay decorativo sutil -->
                     <div class="absolute inset-0 pointer-events-none border border-slate-700/30 rounded-2xl"></div>
@@ -440,10 +449,10 @@
 
             <!-- COPYRIGHT -->
             <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-4 sm:space-y-0">
-                <p>&copy; 2026 REFORMA VALENCIA. Tots els drets reservats.</p>
+                <p>&copy; 2026 REFORMAS FONTETA. Todos los derechos reservados.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="hover:text-slate-400 transition-colors">Avís Legal</a>
-                    <a href="#" class="hover:text-slate-400 transition-colors">Política de Privacitat</a>
+                    <a href="#" class="hover:text-slate-400 transition-colors">Aviso Legal</a>
+                    <a href="#" class="hover:text-slate-400 transition-colors">Política de Privacidad</a>
                     <a href="#" class="hover:text-slate-400 transition-colors">Cookies</a>
                 </div>
             </div>
@@ -452,9 +461,19 @@
 
     <!-- Swiper JS (Para el carrusel) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS (Para efectos de scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- INTERACTIVE JAVASCRIPT -->
     <script>
+        // Inicializar efectos de scroll (AOS)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
         // 1. Mobile Menu Toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -481,13 +500,13 @@
 
             if (!name || !email || !idea) {
                 alertBox.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-rose-100 text-rose-800 border border-rose-200";
-                alertBox.textContent = "Si us plau, omple tots els camps obligatoris.";
+                alertBox.textContent = "Por favor, completa todos los campos obligatorios.";
                 alertBox.classList.remove('hidden');
                 return;
             }
 
             alertBox.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-emerald-100 text-emerald-800 border border-emerald-200";
-            alertBox.textContent = "Gràcies, " + name + "! La teva sol·licitud s'ha enviat correctament. Ens posarem en contacte amb tu ben aviat.";
+            alertBox.textContent = "¡Gracias, " + name + "! Tu solicitud se ha enviado correctamente. Nos pondremos en contacto contigo muy pronto.";
             alertBox.classList.remove('hidden');
             form.reset();
 
@@ -501,12 +520,12 @@
             slidesPerView: 1,
             spaceBetween: 24,
             loop: true,
-            grabCursor: true, // Cambia el cursor a "mano" para indicar que se puede arrastrar
-            simulateTouch: true, // Habilita gestos táctiles en móviles
+            grabCursor: true,
+            simulateTouch: true,
             autoplay: {
-                delay: 3500, // Se mueve automáticamente cada 3.5 segundos
-                disableOnInteraction: false, // Sigue moviéndose después de que el usuario interactúe
-                pauseOnMouseEnter: true, // Se pausa cuando el usuario pasa el ratón por encima (opcional, mejora UX)
+                delay: 3500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
             breakpoints: {
                 640: {
